@@ -161,7 +161,12 @@ def messageHandler(bot, update):
 
 
 def main():
-    updater = Updater(token='835896186:AAGSXks1nxXIrGWn8qEkbegF6a46DRBjhps')
+    yourTokenFile = 'token.txt'
+
+    with open(yourTokenFile) as f:
+        token = f.readline()
+        
+    updater = Updater(token=token)
     dispatcher = updater.dispatcher
 
     startHandler = CommandHandler('start', start, pass_args=True)
